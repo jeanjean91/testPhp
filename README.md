@@ -1,6 +1,6 @@
 # testPhp
 
-bonjour, voici le test. 
+Bonjour, voici le test. 
 J'ai ue quelques petits problemes lorsque je veux include la bdd 
 
 ducoup je l'ai mis directement dans les fichier model.. 
