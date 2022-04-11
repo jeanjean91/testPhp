@@ -6,7 +6,7 @@ class Model {
                     
     public function getlogin() {       
 
-
+            //verif champs rampli
         if(isset($_REQUEST['username']) && isset($_REQUEST['password'])) 
 
         {
@@ -19,12 +19,14 @@ class Model {
             $_SESSION["USERNAME"] = "$username"; 
             
             
-
+               // connexion db 
             $dbcon = mysqli_connect('localhost', 'root', 'root', 'myPhpTest');
                     
+                    //requette
             $verif_user="select * from users WHERE username='$username' AND password='$password'";   
              $run=mysqli_query($dbcon,$check_user); 
 
+                    //condition daccess
              if(mysqli_num_rows(mysqli_query($dbcon,$verif_user)))
             
             {
@@ -33,9 +35,9 @@ class Model {
             
             else  
             {  
-                echo "<script>alert('Email or password is incorrect!')</script>";  // 
+                echo "<script>alert('username ou password  incorrect!')</script>";   
             }  
         }                                                                           
-    }                                                                               //
+    }                                                                               
 } 
 ?>

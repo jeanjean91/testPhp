@@ -2,9 +2,9 @@
 	session_start();
 
 	include("/database.php"); 
-	// $db = mysqli_connect('localhost', 'root', 'root', 'myPhpTest');
+	$db = mysqli_connect('localhost', 'root', 'root', 'myPhpTest');
 
-	// initialize variables
+	//initialiser variable
 	$username = "";
 	$password = "";
 	$id = 0;
