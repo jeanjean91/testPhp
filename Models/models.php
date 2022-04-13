@@ -1,32 +1,35 @@
 
 <?php
-require_once('models/models.php');
+
+ 
 
 class Model {
                     
     public function getlogin() {       
 
-            //verif champs rampli
-        if(isset($_REQUEST['username']) && isset($_REQUEST['password'])) 
+                //verif champs du formulaire rampli 
+        if(isset($_POST['username']) && isset($_POST['password'])) 
 
         {
+             
 
-            // include("/database.php");  
+             include("database.php"); 
+          
+                //stock ds variable données envoyer par login form 
+            $username=$_POST['username'];  
+            $password=$_POST['password']; 
 
-            $username=$_REQUEST['username'];  
-            $password=$_REQUEST['password']; 
-            
+
+                //  recup user name ds la session
             $_SESSION["USERNAME"] = "$username"; 
             
             
-               // connexion db 
-            $dbcon = mysqli_connect('localhost', 'root', 'root', 'myPhpTest');
                     
-                    //requette
+                //requette pour verifier si le username corespon avec le password 
             $verif_user="select * from users WHERE username='$username' AND password='$password'";   
              $run=mysqli_query($dbcon,$check_user); 
 
-                    //condition daccess
+                    //condition daccess si la requette est ok
              if(mysqli_num_rows(mysqli_query($dbcon,$verif_user)))
             
             {
